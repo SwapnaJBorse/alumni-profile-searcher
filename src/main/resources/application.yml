@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: alumni-profile-searcher
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/alumni}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: ${PORT:8080}
+
+phantombuster:
+  api-key: ${PHANTOMBUSTER_API_KEY:}
+  agent-id: ${PHANTOMBUSTER_AGENT_ID:}
+  session-cookie: ${LINKEDIN_SESSION_COOKIE:}
+  mock-enabled: ${PHANTOMBUSTER_MOCK:false}
+  poll-interval-ms: 3000
+  timeout-ms: 180000
+  max-profiles: 25
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
